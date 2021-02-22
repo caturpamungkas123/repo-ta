@@ -8,6 +8,11 @@ class Pengaturan extends BaseController
 {
     public function absensi()
     {
+        if (!session()->get('matkul')) {
+            session()->set('matkul', true);
+        } else {
+            session()->remove('matkul');
+        }
         $dta = [
             'title' => 'Pengaturan Absensi'
         ];
