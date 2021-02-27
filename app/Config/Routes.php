@@ -31,13 +31,27 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
-	$routes->get('/', 'Dosen/Dosen::index');
+$routes->get('/', 'Home::index');
+/** Routes Dosen
+ */
+$routes->group('', ['filter' => 'role:dosen'], function ($routes) {
+	$routes->get('dosen/dosen/index', 'Dosen/dosen::index');
+	$routes->get('dosen/dosen', 'Dosen/dosen::index');
+	$routes->get('absensi/absensi/data', 'absensi/absensi::data');
+	$routes->get('absensi/absensi/rekap', 'absensi/absensi::rekap');
+	$routes->get('dosen/pengaturan/absensi', 'dosen/pengaturan::absensi');
 });
 
-$routes->group('mahasiswa', ['filter' => 'role:mahasiswa'], function ($routes) {
-	$routes->get('/', 'Dosen/Dosen::index');
+/** */
+/**
+ * Routes Mahasiswa */
+$routes->group('', ['filter' => 'role:mahasiswa'], function ($routes) {
+	$routes->get('mahasiswa/mahasiswa/index', 'Mahasiswa/mahasiswa::index');
+	$routes->get('mahasiswa/mahasiswa', 'Mahasiswa/mahasiswa::index');
+	$routes->get('absensi/absensi/form', 'absensi/absensi::form');
 });
+/** */
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

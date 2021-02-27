@@ -6,16 +6,21 @@ use App\Controllers\BaseController;
 
 class Pengaturan extends BaseController
 {
-    public function absensi()
+    public function absensi($matkul)
     {
-        if (!session()->get('matkul')) {
-            session()->set('matkul', true);
-        } else {
-            session()->remove('matkul');
-        }
+        $this->form = new \App\Models\Dosen\FormModel();
         $dta = [
-            'title' => 'Pengaturan Absensi'
+            'title' => 'Pengaturan Absensi',
+            'forms' => $this->form->where(['matkul' => $matkul])->find()
         ];
         return view('dosen/absensi', $dta);
+    }
+    public function absen($matkul, $status)
+    {
+        $this->form = new \App\Models\Dosen\FormModel();
+        // $dta = [
+        //     'title' => 'Pengaturan Absensi',
+        // ];
+        // return view('dosen/absensi', $dta);
     }
 }

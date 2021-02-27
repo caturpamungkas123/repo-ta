@@ -1,7 +1,7 @@
 <?php echo $this->extend('pages/templet'); ?>
 <?php echo $this->section('content') ?>
 <!-- fotm pencarian -->
-<?php if (in_groups('admin', 'dosen')) : ?>
+<?php if (has_permission(1)) : ?>
     <form action="">
         <div class="row">
             <div class="col-md-12">

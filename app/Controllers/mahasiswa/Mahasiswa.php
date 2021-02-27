@@ -13,4 +13,11 @@ class Mahasiswa extends BaseController
         ];
         return view('mahasiswa/data', $dta);
     }
+    public function index()
+    {
+        $dta = [
+            'title' => 'Dahboard Mahasiswa'
+        ];
+        return view('mahasiswa/dashboard', $dta);
+    }
 }

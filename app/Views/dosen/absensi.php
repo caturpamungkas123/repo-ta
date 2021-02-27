@@ -15,15 +15,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Matematika</td>
-                        <td>
-                            <i class="fa fa-lg <?php echo session()->get('matkul') ? 'fa-unlock' : 'fa-lock' ?>"></i>
-                        </td>
-                        <td>
-                            <a href="<?php echo base_url('dosen/pengaturan/absensi') ?>" class="btn <?php echo session()->get('matkul') ? 'btn-primary' : 'btn-danger' ?>"><?php echo session()->get('matkul') ? 'Aktif' : 'Non-Aktif' ?></a>
-                        </td>
-                    </tr>
+                    <?php foreach ($forms as $form) : ?>
+                        <form action="<?php echo base_url() ?>/dosen/pengaturan/absen/<?php echo $form['matkul'] ?>/<?php echo $form['status'] ?>" method="post">
+                            <tr>
+                                <td>Matematika</td>
+                                <td>
+                                    <i class="fa fa-lg <?php echo session()->get('matkul') ? 'fa-unlock' : 'fa-lock' ?>"></i>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn <?php echo session()->get('matkul') ? 'btn-primary' : 'btn-danger' ?>"><?php echo session()->get('matkul') ? 'Aktif' : 'Non-Aktif' ?></button>
+                                </td>
+                            </tr>
+                        </form>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>

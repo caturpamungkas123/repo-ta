@@ -20,4 +20,11 @@ class Absensi extends BaseController
         ];
         return view('absensi/rekap', $dta);
     }
+    public function form()
+    {
+        $dta = [
+            'title' => 'Form Absensi'
+        ];
+        return view('absensi/form', $dta);
+    }
 }
