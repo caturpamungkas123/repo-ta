@@ -51,6 +51,13 @@ $routes->group('', ['filter' => 'role:mahasiswa'], function ($routes) {
 	$routes->get('absensi/absensi/form', 'absensi/absensi::form');
 });
 /** */
+/**
+ * Routes Admin
+ *
+ *
+ * */
+$routes->group('', ['filter' => 'role:admin'], function ($routes) {
+});
 
 /*
  * --------------------------------------------------------------------

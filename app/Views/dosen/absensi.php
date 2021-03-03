@@ -16,14 +16,16 @@
                 </thead>
                 <tbody>
                     <?php foreach ($forms as $form) : ?>
-                        <form action="<?php echo base_url() ?>/dosen/pengaturan/absen/<?php echo $form['matkul'] ?>/<?php echo $form['status'] ?>" method="post">
+                        <form action="<?php echo base_url() ?>/dosen/pengaturan/absen/<?php echo $form['matkul'] ?>" method="POST">
+                            <?php $status = $form['status'] ?>
+                            <input type="hidden" value="<?php echo $form['matkul'] ?>" name="matkul">
                             <tr>
                                 <td>Matematika</td>
                                 <td>
-                                    <i class="fa fa-lg <?php echo session()->get('matkul') ? 'fa-unlock' : 'fa-lock' ?>"></i>
+                                    <i class="fa fa-lg <?php echo ($status == false) ? 'fa-lock' : 'fa-unlock' ?>"></i>
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn <?php echo session()->get('matkul') ? 'btn-primary' : 'btn-danger' ?>"><?php echo session()->get('matkul') ? 'Aktif' : 'Non-Aktif' ?></button>
+                                    <button type="submit" class="btn <?php echo ($status == false) ? 'btn-danger' : 'btn-primary' ?>"><?php echo ($status == false) ? 'Non-Aktif' : 'Aktif' ?></button>
                                 </td>
                             </tr>
                         </form>

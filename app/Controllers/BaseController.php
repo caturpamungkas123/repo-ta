@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
@@ -20,6 +21,11 @@ use Psr\Log\LoggerInterface;
 
 class BaseController extends Controller
 {
+	/**
+	 * instnce of the main Requ
+	 * @var IncomingRequest
+	 */
+	protected $request;
 	/**
 	 * An array of helpers to be loaded automatically upon
 	 * class instantiation. These helpers will be available
